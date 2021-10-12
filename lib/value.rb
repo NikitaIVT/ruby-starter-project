@@ -1,6 +1,7 @@
 class Value
   def self.get_value
-    puts 'Enter start temperature value'
+    system 'clear'
+    puts 'Enter temperature value to convert'
     value = gets.chomp
     value = Integer(value) rescue false
   end
