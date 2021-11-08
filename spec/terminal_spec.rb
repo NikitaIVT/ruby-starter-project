@@ -49,7 +49,7 @@ RSpec.describe Temperature do
 ').to_stdout
     end
   end
-  describe 'input_get' do
+  describe 'get_input' do
     context 'get input'
     before do
       $stdin = StringIO.new('Ab')

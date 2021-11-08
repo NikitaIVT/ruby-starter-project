@@ -33,6 +33,24 @@ RSpec.describe Converter do
       subject { temp.convert_selector }
       it { is_expected.to eq test }
     end
+    context '100 F to 100 F' do
+      test = 100
+      temp = Converter.new
+      temp.from = 'F'
+      temp.to = 'F'
+      temp.value = 100
+      subject { temp.convert_selector }
+      it { is_expected.to eq test }
+    end
+    context '100 K to 100 K' do
+      test = 100
+      temp = Converter.new
+      temp.from = 'K'
+      temp.to = 'K'
+      temp.value = 100
+      subject { temp.convert_selector }
+      it { is_expected.to eq test }
+    end
     context '100 C to 373.15 K' do
       test = 373.15
       temp = Converter.new
