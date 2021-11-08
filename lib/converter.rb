@@ -1,40 +1,75 @@
 class Converter
-  def self.to_celsius value, type
-    if type == 'K'
-      return (value - 273.15).round(2)
-    end
-    if type == 'F'
-      return ((value - 32) * 5 / 9).round(2)
-    end
-  end
-  
-  def self.to_kelvin value, type
-    if type == 'C'
-      return (value + 273.15).round(2)
-    end
-    if type == 'F'
-      return ((value - 32) * 5 / 9 + 273.15).round(2)
-    end
-  end
+  attr_accessor :from, :to, :value
 
-  def self.to_fahrenheit value, type
-    if type == 'K'
-      return ((value - 273.15) * 9 / 5 + 32).round(2)
-    end
-    if type == 'C'
-      return (value * 9 / 5 + 32).round(2)
-    end
-  end
-
-  def self.convert_selector value, from, to
+  def convert_selector
     case to
       when "C"
-        value = to_celsius value, from
+        value = to_celsius!
       when "K"
-        value = to_kelvin value, from
+        value = to_kelvin!
       when "F"
-        value = to_fahrenheit value, from
+        value = to_fahrenheit!
     end
-    return value
+  end
+
+  def to_celsius!
+    case from
+    when "C"
+      same_scales
+    when "K"
+      from_k_to_c!
+    when "F"
+      from_f_to_c!
+    end
+  end
+
+  def to_kelvin!
+    case from
+    when "C"
+      from_c_to_k!
+    when "K"
+      same_scales
+    when "F"
+      from_f_to_k!
+    end
+  end
+
+  def to_fahrenheit!
+    case from
+    when "C"
+      from_c_to_f!
+    when "K"
+      from_k_to_f!
+    when "F"
+      same_scales
+    end
+  end
+
+  def same_scales
+    @value = @value
+  end
+
+  def from_f_to_c!
+    @value = (@value - 32) * 5 / 9
+  end
+
+  def from_k_to_c!
+    @value = @value - 273.15
+  end
+
+  def from_c_to_k!
+    @value = @value + 273.15
+  end
+
+  def from_f_to_k!
+    @value = (@value - 32) * 5 / 9 + 273.15
+  end
+
+  def from_c_to_f!
+    @value = @value * 1.8 + 32
+  end
+
+  def from_k_to_f!
+    @value = (@value - 273.15) * 9 / 5 + 32
   end
 end

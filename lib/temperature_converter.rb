@@ -1,29 +1,15 @@
+require_relative './terminal.rb'
 require_relative './converter.rb'
-require_relative './terminal_text.rb'
-require_relative './from.rb'
-require_relative './to.rb'
-require_relative './value.rb'
+require_relative './temperature.rb'
 
 class TemperatureConverter
-  def self.run
-    TerminalText.title
-
-    from = From.input
-    while !From.is_correct? from
-      from = From.input
+    def run
+        Terminal.title
+        temp = Temperature.new
+        temp.input_from!
+        temp.input_to!
+        temp.input_value!
+        temp.convert!
+        Terminal.print_result temp.from, temp.to, temp.start_value, temp.end_value
     end
-
-    to = To.input
-    while !To.is_correct? to
-      to = To.input
-    end
-
-    start_value = Value.get_value
-    while !Value.is_number? start_value
-      start_value = Value.get_value
-    end
-
-    end_value = Converter.convert_selector start_value, from, to
-    puts "#{start_value.round(2)} #{from} = #{end_value} #{to}" 
-  end
-end
+end 
