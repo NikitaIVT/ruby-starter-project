@@ -6,8 +6,8 @@ RSpec.describe Converter do
       t_value = 50
       temp = Converter.new
       temp.value = 50
-      temp.value == t_value   
-    end 
+      temp.value == t_value
+    end
   end
   describe 'init from and to' do
     it 'init method from' do
@@ -31,7 +31,7 @@ RSpec.describe Converter do
       temp.to = 'C'
       temp.value = 100
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '100 C to 373.15 K' do
       test = 373.15
@@ -40,7 +40,7 @@ RSpec.describe Converter do
       temp.to = 'K'
       temp.value = 100
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '100 C to 212 F' do
       test = 212
@@ -49,7 +49,7 @@ RSpec.describe Converter do
       temp.to = 'F'
       temp.value = 100
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '0 K to -273.15 C' do
       test = -273.15
@@ -58,7 +58,7 @@ RSpec.describe Converter do
       temp.to = 'C'
       temp.value = 0
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '100 K to -279.67 F' do
       test = -279.67
@@ -67,7 +67,7 @@ RSpec.describe Converter do
       temp.to = 'F'
       temp.value = 100
       subject { temp.convert_selector.round(2) }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '100 F to 37 C' do
       test = 37
@@ -76,7 +76,7 @@ RSpec.describe Converter do
       temp.to = 'C'
       temp.value = 100
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
     context '100 F to -279.67 K' do
       test = 310.15
@@ -85,7 +85,7 @@ RSpec.describe Converter do
       temp.to = 'K'
       temp.value = 100
       subject { temp.convert_selector }
-      it { is_expected.to eq test}
+      it { is_expected.to eq test }
     end
   end
 end

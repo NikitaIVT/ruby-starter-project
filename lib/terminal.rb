@@ -1,5 +1,5 @@
 class Terminal
-  def self.getInput
+  def self.input_get
     gets.chomp
   end
 

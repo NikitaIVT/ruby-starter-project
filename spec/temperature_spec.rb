@@ -25,42 +25,42 @@ RSpec.describe Temperature do
   end
   describe '#input_from!' do
     context 'Correct from (F)'
-      before do
-        $stdin = StringIO.new("F")
-      end
-    
-      after do
-        $stdin = STDIN
-      end
-    
-      subject { Temperature.new.input_from! }
-      it { is_expected.to eq 'F' }
+    before do
+      $stdin = StringIO.new('F')
+    end
+
+    after do
+      $stdin = STDIN
+    end
+
+    subject { Temperature.new.input_from! }
+    it { is_expected.to eq 'F' }
   end
   describe '#input_to!' do
     context 'Correct to (K)'
-      before do
-        $stdin = StringIO.new("K")
-      end
-    
-      after do
-        $stdin = STDIN
-      end
-    
-      subject { Temperature.new.input_to! }
-      it { is_expected.to eq 'K' }
+    before do
+      $stdin = StringIO.new('K')
+    end
+
+    after do
+      $stdin = STDIN
+    end
+
+    subject { Temperature.new.input_to! }
+    it { is_expected.to eq 'K' }
   end
   describe '#input_value!' do
     context 'Correct to (K)'
-      before do
-        $stdin = StringIO.new('100')
-      end
-    
-      after do
-        $stdin = STDIN
-      end
-    
-      subject { Temperature.new.input_value! }
-      it { is_expected.to eq 100 }
+    before do
+      $stdin = StringIO.new('100')
+    end
+
+    after do
+      $stdin = STDIN
+    end
+
+    subject { Temperature.new.input_value! }
+    it { is_expected.to eq 100 }
   end
   describe 'convert' do
     it 'check' do
@@ -71,5 +71,4 @@ RSpec.describe Temperature do
       expect(temp.convert!).to eq 373.15
     end
   end
-
 end

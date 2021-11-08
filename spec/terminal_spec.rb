@@ -49,17 +49,17 @@ RSpec.describe Temperature do
 ').to_stdout
     end
   end
-  describe 'get_input' do
+  describe 'input_get' do
     context 'get input'
-      before do
-        $stdin = StringIO.new("Ab")
-      end
-    
-      after do
-        $stdin = STDIN
-      end
-    
-      subject { Terminal.getInput }
-      it { is_expected.to eq 'Ab' }
+    before do
+      $stdin = StringIO.new('Ab')
+    end
+
+    after do
+      $stdin = STDIN
+    end
+
+    subject { Terminal.input_get }
+    it { is_expected.to eq 'Ab' }
   end
 end
